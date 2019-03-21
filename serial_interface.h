@@ -1,31 +1,5 @@
 SoftwareSerial wifi(SER_RX, SER_TX);
 
-boolean Find(String keyword){
- byte current_char = 0;
- byte keyword_length = keyword.length();
- long deadline = millis() + SER_TIMEOUT;
- while(millis() < deadline){
-  if (wifi.available()){
-    char ch = wifi.read();
-    if (ch == keyword[current_char])
-      if (++current_char == keyword_length){
-       return true;
-    }
-   }
-  }
- return false; // Timed out
-}
-
-boolean SendCommand(String cmd, String ack){
-  wifi.println(cmd); // Send "AT+" command to module
-  if (!Find(ack)) {
-    return false;
-  }
-  else {
-    return true; // ack blank or ack found
-  }
-}
-
 
 //used to start serial connection to Rwifi Module
 bool wifi_setup() {
@@ -33,6 +7,35 @@ bool wifi_setup() {
   Serial.begin(115200);
   delay(STARTUP_DELAY);
 }
+
+void serialEvent() {
+  String input = Serial.readStringUntil(LINEEND_CHAR);
+
+  
+}
+
+
+
+void wifi_loop() {
+  if(wifi.available() > 0) {
+    serialEvent();
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 color parse_col_res;
@@ -101,4 +104,30 @@ void watch_serial() {
     Serial.println("Off-Command-triggered");
   }
 
+}
+
+boolean Find(String keyword){
+ byte current_char = 0;
+ byte keyword_length = keyword.length();
+ long deadline = millis() + SER_TIMEOUT;
+ while(millis() < deadline){
+  if (wifi.available()){
+    char ch = wifi.read();
+    if (ch == keyword[current_char])
+      if (++current_char == keyword_length){
+       return true;
+    }
+   }
+  }
+ return false; // Timed out
+}
+
+boolean SendCommand(String cmd, String ack){
+  wifi.println(cmd); // Send "AT+" command to module
+  if (!Find(ack)) {
+    return false;
+  }
+  else {
+    return true; // ack blank or ack found
+  }
 }

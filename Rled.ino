@@ -13,8 +13,12 @@
 #define SER_TIMEOUT 1000
 #define SER_BAUD 115200
 #define STARTUP_DELAY 1500
+#define LINEEND_CHAR '\n'
 
 CRGB led_strip[NUM_LEDS];
+
+//flags that are set by the wifi-loop
+bool F_CONNECTED = FALSE
 
 
 #include "led_settings.h"
