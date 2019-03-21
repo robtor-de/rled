@@ -5,7 +5,7 @@ struct color {
 } current_color;
 
 void led_setup() {
-  
+  //add LED Controller type with DATA_PIN and CLK_PIN as led_strip with 1 LED (complete Strip Controller)
   FastLED.addLeds<P9813, DATA_PIN, CLK_PIN>(led_strip, NUM_LEDS);
 }
 
