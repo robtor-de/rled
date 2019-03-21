@@ -1,5 +1,15 @@
 SoftwareSerial wifi(SER_RX, SER_TX);
 
+//constants for serial communication messages
+#define MSG_CONNECTED "#connected"
+#define MSG_FAIL "#fail"
+#define MSG_MISSING_CREDENTIALS "#nocredentials"
+#define MSG_INIT "#init"
+#define MSG_UNIT_DISABLED "#disabled"
+#define MSG_DISCONNECTED "#disconnected"
+#define MSG_SAVED "#saved"
+#define MSG_SERVER_ENABLED "#listening"
+#define MSG_SERVER_CLOSED "#closed"
 
 //used to start serial connection to Rwifi Module
 bool wifi_setup() {
@@ -11,7 +21,9 @@ bool wifi_setup() {
 void serialEvent() {
   String input = Serial.readStringUntil(LINEEND_CHAR);
 
-  
+  switch(input) {
+
+  }
 }
 
 

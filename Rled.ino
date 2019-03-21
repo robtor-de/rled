@@ -18,7 +18,9 @@
 CRGB led_strip[NUM_LEDS];
 
 //flags that are set by the wifi-loop
-bool F_CONNECTED = FALSE
+bool F_CONNECTED = false;
+bool F_SERVER = false;
+bool F_INIT = false;
 
 
 #include "led_settings.h"
