@@ -10,7 +10,7 @@ CRGB led_strip[NUM_LEDS];
 
 
 #include "led_settings.h"
-#include "interpolation_functions.h"
+#include "transitions.h"
 #include "lightshow_functions.h"
 #include "modes.h"
 #include "esp.h"
@@ -23,7 +23,7 @@ void setup() {
   led_setup();
   turn_off(0);
 
-    
+
   if(wifi_setup()) {
     turn_to_default(10000);
   }
@@ -32,8 +32,8 @@ void setup() {
   }
 
 
-  
-  
+
+
 }
 
 void loop() {

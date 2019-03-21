@@ -27,7 +27,5 @@ void linear_fade(color f, color t, int d) {
     target.green = linear(d_green, d, f.green, now);
     target.blue = linear(d_blue, d, f.blue, now);
     set_rgb(target);
-  }
-  
-  
+  }  
 }
