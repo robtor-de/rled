@@ -9,13 +9,15 @@ void led_setup() {
   FastLED.addLeds<P9813, DATA_PIN, CLK_PIN>(led_strip, NUM_LEDS);
 }
 
+
+//function to set the LED_Strip color
 void set_rgb(color c) {
   led_strip[0].setRGB(c.red, c.green, c.blue);
   FastLED.show();
   current_color = c;
 }
 
-
+//function to set the Color via HSV data
 void set_hsv(int h, int s, int v) {
   led_strip[0].setHSV(h, s, v);
 }
