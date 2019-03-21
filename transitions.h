@@ -14,7 +14,6 @@ void linear_fade(color f, color t, int d) {
   d_blue = t.blue - f.blue;
 
   color target;
-
   long current_millis = millis();
 
   while(true) {
@@ -29,18 +28,4 @@ void linear_fade(color f, color t, int d) {
     set_rgb(target);
   }
 
-}
-
-//fade from color f to color t (red, green, blue separated)
-void rowed_linear_fade(color f, color t, int d) {
-  int d[2] = 0;
-  int s[2] = 0;
-    d[0] = t.red - f.red;
-    d[1] = t.green - f.green;
-    d[2] = t.blue - f.blue;
-
-    //sort change intervals to size
-    while(true) {
-
-    }
 }

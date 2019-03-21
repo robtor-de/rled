@@ -1,11 +1,17 @@
 #include <SoftwareSerial.h>
 #include <FastLED.h>
 
+
+//configure LED-Controller connection here
 #define NUM_LEDS 1
 #define DATA_PIN 2
 #define CLK_PIN  3
 
-SoftwareSerial wifi(9, 8);
+//configure SoftwareSerial connection here
+#define SER_RX 9
+#define SER_TX 8
+
+SoftwareSerial wifi(SER_RX, SER_TX);
 CRGB led_strip[NUM_LEDS];
 
 
