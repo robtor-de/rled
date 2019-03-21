@@ -1,5 +1,9 @@
 void split_string(String *data) {
-  
+ int val = 0;
+
+ while(val != -1) {
+   
+ }
 }
 
 
