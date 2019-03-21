@@ -19,8 +19,10 @@ bool wifi_setup() {
 }
 
 void command_interpreter(String command) {
+  String tail = command.substring(1);
+
   switch(command.charAt(0)) {
-    case 's': 
+    case 's': c_set(&tail); break;
   }
 }
 

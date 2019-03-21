@@ -1,2 +1,5 @@
+[colorcode]:
+<red:green:blue>
+
 Set Color:
-s:<red>:<green>:<blue>
+s:[colorcode]

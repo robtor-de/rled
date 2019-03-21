@@ -24,14 +24,18 @@ bool F_INIT = false;
 bool F_FAILSTATE = false;
 
 
-#include "led_settings.h"
-#include "lightshow_functions.h"
-#include "modes.h"
 
+#include "led_settings.h"
 #include "transitions.h"
 #include "commands.h"
 #include "serial_interface.h"
 
+
+
+//reomve this later
+
+#include "lightshow_functions.h"
+#include "modes.h"
 
 color c1, c2, c3;
 
