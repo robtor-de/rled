@@ -10,8 +10,10 @@
 //configure SoftwareSerial connection here
 #define SER_RX 9
 #define SER_TX 8
+#define SER_TIMEOUT 1000
+#define SER_BAUD 115200
+#define STARTUP_DELAY 1500
 
-SoftwareSerial wifi(SER_RX, SER_TX);
 CRGB led_strip[NUM_LEDS];
 
 
@@ -19,7 +21,7 @@ CRGB led_strip[NUM_LEDS];
 #include "transitions.h"
 #include "lightshow_functions.h"
 #include "modes.h"
-#include "esp.h"
+#include "serial_interface.h"
 
 
 color c1, c2, c3;
@@ -29,14 +31,7 @@ void setup() {
   led_setup();
   turn_off(0);
 
-
-  if(wifi_setup()) {
-    turn_to_default(10000);
-  }
-  else {
-    turn_to_default(10000);
-  }
-
+  wifi_setup();
 
 
 

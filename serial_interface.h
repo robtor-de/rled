@@ -1,9 +1,9 @@
-#define TIMEOUT 1000
+SoftwareSerial wifi(SER_RX, SER_TX);
 
 boolean Find(String keyword){
  byte current_char = 0;
  byte keyword_length = keyword.length();
- long deadline = millis() + TIMEOUT;
+ long deadline = millis() + SER_TIMEOUT;
  while(millis() < deadline){
   if (wifi.available()){
     char ch = wifi.read();
@@ -27,46 +27,11 @@ boolean SendCommand(String cmd, String ack){
 }
 
 
+//used to start serial connection to Rwifi Module
 bool wifi_setup() {
-  wifi.begin(115200);
+  wifi.begin(SER_BAUD);
   Serial.begin(115200);
-  delay(1000);
-
-
-  if(SendCommand("AT", "OK")) {
-    color green;
-    green.green = 255;
-    pulse(green, 500);
-    Serial.println("Wifi-Module connected successfully");
-  }
-  else {
-    color red;
-    red.red = 255;
-    pulse(red, 500);
-    Serial.println("Wifi-Module missing");
-    return false;
-  }
-
-
-  delay(2000);
-
-  if(SendCommand("AT+CWJAP_CUR?", "No AP")) {
-    color blue;
-    blue.blue = 255;
-    fade_to_target(blue, 1000);
-    Serial.println("Not connected to accesspoint");
-    return true;
-  }
-  else {
-    color green;
-    green.green = 255;
-    pulse(green, 800);
-    Serial.println("Connected to accesspoint succesfully");
-    digitalWrite(13, HIGH);
-    SendCommand("AT+CIPMUX=1", "OK");
-    SendCommand("AT+CIPSERVER=1", "OK");
-    return true;
-  }
+  delay(STARTUP_DELAY);
 }
 
 
@@ -88,7 +53,7 @@ void watch_serial() {
     Serial.println(ser);
   }
 
-  String analyzed[8];    
+  String analyzed[8];
   int field = 0;
   for(int i=0; i < ser.length(); i++) {
     if(field <= 4 && ser.charAt(i) != ';') {
@@ -135,6 +100,5 @@ void watch_serial() {
     turn_off(analyzed[1].toInt());
     Serial.println("Off-Command-triggered");
   }
-  
-}
 
+}
