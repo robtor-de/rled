@@ -8,8 +8,10 @@ void split_string(String data) {
    split_res[i] = data.substring(0,val-1);
    data = data.substring(val+1);
    i++;
-   
+   int val = indexOf(':');
  }
+
+ split_res[i] = data;
 }
 
 
