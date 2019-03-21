@@ -1,0 +1,2 @@
+Set Color:
+s:<red>:<green>:<blue>

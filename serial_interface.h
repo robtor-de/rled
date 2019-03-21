@@ -19,7 +19,9 @@ bool wifi_setup() {
 }
 
 void command_interpreter(String command) {
-
+  switch(command.charAt(0)) {
+    case 's': 
+  }
 }
 
 void serialEvent() {

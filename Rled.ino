@@ -25,9 +25,11 @@ bool F_FAILSTATE = false;
 
 
 #include "led_settings.h"
-#include "transitions.h"
 #include "lightshow_functions.h"
 #include "modes.h"
+
+#include "transitions.h"
+#include "commands.h"
 #include "serial_interface.h"
 
 
