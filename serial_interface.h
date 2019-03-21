@@ -21,8 +21,20 @@ bool wifi_setup() {
 void serialEvent() {
   String input = Serial.readStringUntil(LINEEND_CHAR);
 
-  switch(input) {
-
+  if(input == MSG_CONNECTED) {
+    F_INIT = true;
+    F_CONNECTED = true;
+    F_FAILSTATE = false;
+  } else if (input == MSG_INIT) {
+    F_INIT = true;
+  } else if (input == MSG_FAIL) {
+    F_CONNECTED = false;
+  } else if (input == MSG_SERVER_ENABLED) {
+    F_SERVER = true;
+  } else if (input == MSG_SERVER_CLOSED) {
+    F_SERVER = false;
+  } else if (input == MSG_UNIT_DISABLED || input == MSG_MISSING_CREDENTIALS) {
+    F_FAILSTATE = true;
   }
 }
 

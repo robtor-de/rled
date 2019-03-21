@@ -21,6 +21,7 @@ CRGB led_strip[NUM_LEDS];
 bool F_CONNECTED = false;
 bool F_SERVER = false;
 bool F_INIT = false;
+bool F_FAILSTATE = false;
 
 
 #include "led_settings.h"
