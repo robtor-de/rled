@@ -38,6 +38,7 @@ bool F_FAILSTATE = false;
 void setup() {
   wifi_setup();
   led_setup();
+  load_startup_color();
 }
 
 void loop() {
