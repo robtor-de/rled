@@ -23,6 +23,7 @@ bool F_CONNECTED = false;
 bool F_SERVER = false;
 bool F_INIT = false;
 bool F_FAILSTATE = false;
+bool F_FAILSTATESWITCHED = false;
 
 //other options
 #define BLINKFREQ 800 //ms frequency to blink on errors or other notifications
@@ -33,6 +34,7 @@ bool F_FAILSTATE = false;
 #include "status.h"
 #include "commands.h"
 #include "serial_interface.h"
+#include "modes.h"
 
 
 //startup procedure
@@ -45,4 +47,6 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   wifi_loop();
+
+
 }
