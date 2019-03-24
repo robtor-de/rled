@@ -1,5 +1,6 @@
 #include <SoftwareSerial.h>
 #include <FastLED.h>
+#include <EEPROM.h>
 
 
 //configure LED-Controller connection here
