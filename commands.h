@@ -15,6 +15,9 @@ void split_string(String data) {
  split_res[i] = data;
 }
 
+void colorparse(String colordata) {
+  
+}
 
 void c_set(String *tail) {
 
