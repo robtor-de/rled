@@ -34,6 +34,7 @@ void serialEvent() {
     F_INIT = true;
     F_CONNECTED = true;
     F_FAILSTATE = false;
+    wifi.println("&server");
     st_connect();
   } else if (input == MSG_INIT) {
     F_INIT = true;
