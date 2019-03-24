@@ -14,7 +14,7 @@
 #define SER_TIMEOUT 1000
 #define SER_BAUD 115200
 #define STARTUP_DELAY 10
-#define LINEEND_CHAR '\n'
+#define LINEEND_CHAR '\r\n'
 
 CRGB led_strip[NUM_LEDS];
 
