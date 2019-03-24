@@ -13,7 +13,7 @@
 #define SER_RX 8
 #define SER_TX 9
 #define SER_TIMEOUT 1000
-#define SER_BAUD 115200
+#define SER_BAUD 9600
 #define STARTUP_DELAY 10
 #define LINEEND_CHAR '\r\n'
 
@@ -40,14 +40,13 @@ bool F_FAILSTATESWITCHED = false;
 
 //startup procedure
 void setup() {
-  pinMode(13, OUTPUT);
   wifi_setup();
   led_setup();
   load_startup_color();
 
   #ifdef DEBUG
     Serial.begin(115200);
-    Serial.println("available");
+    Serial.println("Debug enabled");
   #endif
 }
 

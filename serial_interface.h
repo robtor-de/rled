@@ -29,10 +29,19 @@ void command_interpreter(String command) {
 void serialEvent() {
   String input = wifi.readStringUntil(LINEEND_CHAR);
 
+  #ifdef DEBUG
+    Serial.println(input);
+  #endif
+
   if(input.startsWith(MSG_CONNECTED)) {
     F_INIT = true;
     F_CONNECTED = true;
     F_FAILSTATE = false;
+
+    #ifdef DEBUG
+      Serial.println("Starting Server...");
+    #endif
+
     wifi.println("&server");
     st_connect();
   } else if (input.startsWith(MSG_INIT)) {
