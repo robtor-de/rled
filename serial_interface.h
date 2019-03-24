@@ -33,16 +33,22 @@ void serialEvent() {
     F_INIT = true;
     F_CONNECTED = true;
     F_FAILSTATE = false;
+    st_connect();
   } else if (input == MSG_INIT) {
     F_INIT = true;
+    st_init();
   } else if (input == MSG_FAIL) {
     F_CONNECTED = false;
+    st_fail();
   } else if (input == MSG_SERVER_ENABLED) {
     F_SERVER = true;
+    st_server();
   } else if (input == MSG_SERVER_CLOSED) {
     F_SERVER = false;
+    st_fail();
   } else if (input == MSG_UNIT_DISABLED || input == MSG_MISSING_CREDENTIALS) {
     F_FAILSTATE = true;
+    st_fail();
   } else {
     command_interpreter(input);
   }
