@@ -4,5 +4,7 @@ Color Codes:
 
 
 Set color:
-
 s:<rgb>
+
+Store default startup color:
+p:<rgb>

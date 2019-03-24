@@ -10,3 +10,8 @@ void c_set(String *tail) {
   parsecolor(*tail);
   set_rgb(temp_color);
 }
+
+void c_store(String *tail) {
+  parsecolor(*tail);
+  save_startup_color(temp_color);
+}
