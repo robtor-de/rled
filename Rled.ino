@@ -9,11 +9,11 @@
 #define CLK_PIN  3
 
 //configure SoftwareSerial connection here
-#define SER_RX 9
-#define SER_TX 8
+#define SER_RX 8
+#define SER_TX 9
 #define SER_TIMEOUT 1000
 #define SER_BAUD 115200
-#define STARTUP_DELAY 1500
+#define STARTUP_DELAY 10
 #define LINEEND_CHAR '\n'
 
 CRGB led_strip[NUM_LEDS];
