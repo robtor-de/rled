@@ -33,22 +33,9 @@ bool F_FAILSTATE = false;
 
 
 
-//reomve this later
-
-#include "lightshow_functions.h"
-#include "modes.h"
-
-color c1, c2, c3;
-
 void setup() {
-  // put your setup code here, to run once:
-  led_setup();
-  turn_off(0);
-
   wifi_setup();
-
-
-
+  led_setup();
 }
 
 void loop() {
