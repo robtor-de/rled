@@ -45,8 +45,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   wifi_loop();
-
-
+  mode_loop();
 }
