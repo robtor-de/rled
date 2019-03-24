@@ -1,5 +1,8 @@
-[colorcode]:
-<red:green:blue>
+Color Codes:
+    r     g     b
+[0-255][0-255][0-255]
 
-Set Color:
-s:[colorcode]
+
+Set color:
+
+s:<rgb>
