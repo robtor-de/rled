@@ -39,6 +39,7 @@ bool F_FAILSTATESWITCHED = false;
 
 //startup procedure
 void setup() {
+  pinMode(13, OUTPUT);
   wifi_setup();
   led_setup();
   load_startup_color();
