@@ -24,7 +24,8 @@ bool F_SERVER = false;
 bool F_INIT = false;
 bool F_FAILSTATE = false;
 
-
+//other options
+#define BLINKFREQ 800 //ms frequency to blink on errors or other notifications
 
 #include "led_settings.h"
 #include "colorstorage.h"
