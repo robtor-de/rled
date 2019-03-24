@@ -28,9 +28,9 @@ void command_interpreter(String command) {
 }
 
 void serialEvent() {
-  String input = Serial.readStringUntil(LINEEND_CHAR);
+  String input = wifi.readStringUntil(LINEEND_CHAR);
 
-  Serial.println("wifieserialevent");
+  Serial.println(input);
 
   if(input == MSG_CONNECTED) {
     F_INIT = true;
