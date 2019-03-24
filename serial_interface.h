@@ -30,6 +30,8 @@ void command_interpreter(String command) {
 void serialEvent() {
   String input = Serial.readStringUntil(LINEEND_CHAR);
 
+  Serial.println("wifieserialevent");
+
   if(input == MSG_CONNECTED) {
     F_INIT = true;
     F_CONNECTED = true;

@@ -43,6 +43,9 @@ void setup() {
   wifi_setup();
   led_setup();
   load_startup_color();
+
+  Serial.begin(115200);
+  Serial.println("available");
 }
 
 void loop() {
