@@ -11,7 +11,9 @@ void blink_status(int count, uint8_t r, uint8_t g, uint8_t b) {
 //Is executed when Wifi-Adapter is connected
 void st_connect() {
   blink_status(3, 0, 255, 0);
-  digitalWrite(13, HIGH);
+  #ifdef DEBUG
+    Serial.println("Connected");
+  #endif
 }
 
 //is executed when module initialized

@@ -2,6 +2,7 @@
 #include <FastLED.h>
 #include <EEPROM.h>
 
+#define DEBUG
 
 //configure LED-Controller connection here
 #define NUM_LEDS 1
@@ -44,8 +45,10 @@ void setup() {
   led_setup();
   load_startup_color();
 
-  Serial.begin(115200);
-  Serial.println("available");
+  #ifdef DEBUG
+    Serial.begin(115200);
+    Serial.println("available");
+  #endif
 }
 
 void loop() {
