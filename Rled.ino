@@ -2,7 +2,8 @@
 #include <FastLED.h>
 #include <EEPROM.h>
 
-#define DEBUG
+//uncomment to enable serial debug mode
+//#define DEBUG
 
 //configure LED-Controller connection here
 #define NUM_LEDS 1
