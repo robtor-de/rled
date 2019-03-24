@@ -14,7 +14,6 @@ SoftwareSerial wifi(SER_RX, SER_TX);
 //used to start serial connection to Rwifi Module
 bool wifi_setup() {
   wifi.begin(SER_BAUD);
-  Serial.begin(115200);
   delay(STARTUP_DELAY);
 }
 
@@ -30,24 +29,34 @@ void command_interpreter(String command) {
 void serialEvent() {
   String input = wifi.readStringUntil(LINEEND_CHAR);
 
-  if(input == MSG_CONNECTED) {
+  #ifdef DEBUG
+    Serial.println(input);
+  #endif
+
+  if(input.startsWith(MSG_CONNECTED)) {
     F_INIT = true;
     F_CONNECTED = true;
     F_FAILSTATE = false;
+
+    #ifdef DEBUG
+      Serial.println("Starting Server...");
+    #endif
+
+    wifi.println("&server");
     st_connect();
-  } else if (input == MSG_INIT) {
+  } else if (input.startsWith(MSG_INIT)) {
     F_INIT = true;
     st_init();
-  } else if (input == MSG_FAIL) {
+  } else if (input.startsWith(MSG_FAIL)) {
     F_CONNECTED = false;
     st_fail();
-  } else if (input == MSG_SERVER_ENABLED) {
+  } else if (input.startsWith(MSG_SERVER_ENABLED)) {
     F_SERVER = true;
     st_server();
-  } else if (input == MSG_SERVER_CLOSED) {
+  } else if (input.startsWith(MSG_SERVER_CLOSED)) {
     F_SERVER = false;
     st_fail();
-  } else if (input == MSG_UNIT_DISABLED || input == MSG_MISSING_CREDENTIALS) {
+  } else if (input.startsWith(MSG_UNIT_DISABLED) || input.startsWith(MSG_MISSING_CREDENTIALS)) {
     F_FAILSTATE = true;
     st_fail();
   } else {

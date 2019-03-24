@@ -11,6 +11,9 @@ void blink_status(int count, uint8_t r, uint8_t g, uint8_t b) {
 //Is executed when Wifi-Adapter is connected
 void st_connect() {
   blink_status(3, 0, 255, 0);
+  #ifdef DEBUG
+    Serial.println("Connected");
+  #endif
 }
 
 //is executed when module initialized
@@ -26,4 +29,5 @@ void st_fail() {
 //is executed when server is started
 void st_server() {
   blink_status(1, 255, 0, 255);
+  digitalWrite(13, HIGH);
 }
