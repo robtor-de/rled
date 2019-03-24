@@ -14,7 +14,6 @@ SoftwareSerial wifi(SER_RX, SER_TX);
 //used to start serial connection to Rwifi Module
 bool wifi_setup() {
   wifi.begin(SER_BAUD);
-  Serial.begin(115200);
   delay(STARTUP_DELAY);
 }
 
