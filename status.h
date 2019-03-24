@@ -2,8 +2,10 @@
 void blink_status(int count, uint8_t r, uint8_t g, uint8_t b) {
   for (int i=0; i <= count; i++) {
     led_strip[0].setRGB(r, g, b);
+    digitalWrite(13, HIGH);
     delay(BLINKFREQ);
     led_strip[0].setRGB(0, 0, 0);
+    digitalWrite(13, LOW);
     delay(BLINKFREQ);
   }
 }
