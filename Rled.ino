@@ -34,7 +34,7 @@ bool F_FAILSTATE = false;
 #include "serial_interface.h"
 
 
-
+//startup procedure
 void setup() {
   wifi_setup();
   led_setup();
