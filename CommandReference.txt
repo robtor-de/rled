@@ -4,7 +4,7 @@ Color Codes:
 
 
 Set color:
-s:<rgb>
+s<rgb>
 
 Store default startup color:
-p:<rgb>
+p<rgb>
